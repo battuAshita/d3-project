@@ -1,8 +1,11 @@
 import * as d3 from "d3";
 
 async function drawScatterPlot() {
-  const dataset = await d3.csv("./data/penguins.csv");
-  console.table(dataset[0]);
+  let dataset = await d3.csv("../data/penguins.csv");
+  dataset = dataset.filter(
+    (obj) => obj.bill_length_mm != "NA" && obj.bill_depth_mm != "NA"
+  );
+  console.log(dataset);
 
   // Create accessor functions
   const yAccessor = (d) => Number(d.bill_length_mm);
@@ -144,14 +147,36 @@ async function drawScatterPlot() {
   }
 
   // Create legend
+  const legend = d3
+    .select("#legend")
+    .attr("x", dimensions.boundedWidth)
+    .attr("y", 0);
+
   const box = bounds
     .append("g")
     .style(
       "transform",
-      `translate(${dimensions.boundedWidth - 95}px, ${20}px)`
+      `translate(${dimensions.boundedWidth - 95}px , ${0}px)`
     );
 
-  box.selectAll("circle").data(colorScale).enter().append("circle").attr("");
+  let y = 5;
+  for (const key in colorScale) {
+    console.log(colorScale[key]);
+    box
+      .append("circle")
+      .attr("cx", 10)
+      .attr("cy", y)
+      .attr("r", 5)
+      .style("fill", colorScale[key]);
+
+    box
+      .append("text")
+      .html(key)
+      .attr("x", 20)
+      .attr("y", y + 5).a;
+
+    y = y + 30;
+  }
 }
 
 drawScatterPlot();

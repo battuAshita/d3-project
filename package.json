@@ -1,18 +1,18 @@
 {
-    "name": "d3-practise",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "vite"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "d3": "^7.8.5"
-    },
-    "devDependencies": {
-      "vite": "^4.5.0"
-    }
+  "name": "d3-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^7.8.5"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0"
   }
+}
